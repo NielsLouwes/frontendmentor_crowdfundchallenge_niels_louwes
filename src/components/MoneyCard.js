@@ -1,8 +1,10 @@
-import React , {useState} from 'react'
+import React , { useContext}  from 'react'
 import styled from 'styled-components'
+import ProgressBar from '../utilities/ProgressBar'
+import Divider from '@mui/material/Divider';
+
 
 const Styles = styled.div`
-    border: 1px solid red;
     width: 45%;
     height: 15vh;
     margin-top: 15px;
@@ -13,27 +15,42 @@ const Styles = styled.div`
 const FiguresContainer = styled.div`
     display: flex;
     justify-content: space-around;
+
+    p {
+      font-size: 1.0rem;
+    }
+
+    .bigFigure {
+      font-size: 1.5rem;
+      font-weight: bolder;
+      color: black;
+    }
 `
 
-function MoneyCard(props) {
- 
+function MoneyCard({moneyPledged, backers}) {
+  
 
     return (
         <Styles>
             <FiguresContainer>
                 <div>
-                  <p>$ {props.moneyPledged}.00</p>
+                  <p className="bigFigure">${moneyPledged}.00</p>
                   <p> of $ 100,000 backed</p>
                 </div>
+                <Divider orientation="vertical" flexItem  variant="middle"/>
                 <div>
-                  <p>{props.backers}</p>
+                  <p className="bigFigure">{backers}</p>
                   <p> total backers</p>
                 </div>
+                <Divider orientation="vertical" flexItem  variant="middle"/>
                 <div>
-                  <p>56</p>
+                  <p className="bigFigure">56</p>
                   <p> days left</p>
                 </div>
-            </FiguresContainer>
+                </FiguresContainer>
+                <ProgressBar value={moneyPledged} max={100000}/>
+            
+            
         </Styles>
     )
 }
