@@ -5,7 +5,7 @@ import Divider from '@mui/material/Divider';
 
 
 const Styles = styled.div`
-    width: 45%;
+    width: 47%;
     height: 15vh;
     margin-top: 15px;
     background-color: white;
