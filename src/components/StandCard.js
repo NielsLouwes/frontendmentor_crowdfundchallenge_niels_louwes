@@ -27,8 +27,18 @@ const Styles = styled.div`
     button:hover {
         cursor: pointer;
     }
+
+    button:disabled {
+        background-color: grey;
+    }
     
     h3 {
+        color: black;
+    }
+
+    span {
+        font-size: 1.3em;
+        font-weight: bolder;
         color: black;
     }
 
@@ -70,7 +80,7 @@ const CardTitle = styled.p`
     font-weight: bolder;
 `
 
-function StandCard({label, pledge, description, amountLeft,  moneyPledged, backers, increment25,increment75, increment200, bambooAmountLeft, blackEditionAmountLeft, mahoganyAmountLeft}) {
+function StandCard({label, pledge, description, increment, amountLeft}) {
 
 
     return (
@@ -81,8 +91,17 @@ function StandCard({label, pledge, description, amountLeft,  moneyPledged, backe
                 </TitleContainer>
                 <p>{description}</p>
                 <div>
-                    <p>{bambooAmountLeft} left </p> 
-                    <button className="hvr-grow" onClick={increment25} type="button">Select Reward</button>
+                    <p> <span>{amountLeft}</span> left </p> 
+                    <button 
+                    className="hvr-grow"
+                    disabled={
+                        !amountLeft
+                    }
+                    onClick={increment} 
+                    type="button"
+                    >
+                        Select Reward
+                    </button>
                 </div>
         </Styles>
     )

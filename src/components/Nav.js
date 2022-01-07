@@ -30,7 +30,6 @@ const Styles = styled.div`
     h3 {
         color: white;
         font-size: 1.2em;
-        margin-left: 25px;
     }
 
     p {
