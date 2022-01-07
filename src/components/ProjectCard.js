@@ -27,7 +27,7 @@ const TextContainer = styled.div`
     text-align: justify;
 `
 
-function ProjectCard({moneyPledged, backers, increment25,increment75, increment200, bambooAmountLeft, blackEditionAmountLeft, mahoganyAmountLeft}) {
+function ProjectCard({moneyPledged, backers, increment25, increment75, increment200, bambooAmountLeft, blackEditionAmountLeft, mahoganyAmountLeft}) {
     
     return (
         <Styles>
