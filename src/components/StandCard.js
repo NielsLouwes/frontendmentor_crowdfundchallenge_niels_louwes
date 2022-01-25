@@ -30,6 +30,7 @@ const Styles = styled.div`
 
     button:disabled {
         background-color: grey;
+        cursor: none;
     }
     
     h3 {

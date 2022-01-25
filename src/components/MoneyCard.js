@@ -29,7 +29,6 @@ const FiguresContainer = styled.div`
 
 function MoneyCard({moneyPledged, backers}) {
   
-
     return (
         <Styles>
             <FiguresContainer>
@@ -48,9 +47,7 @@ function MoneyCard({moneyPledged, backers}) {
                   <p> days left</p>
                 </div>
                 </FiguresContainer>
-                <ProgressBar value={moneyPledged} max={100000}/>
-            
-            
+                <ProgressBar value={moneyPledged} max={100000}/>        
         </Styles>
     )
 }
