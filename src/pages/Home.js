@@ -26,6 +26,7 @@ function Home() {
   const [blackEditionAmountLeft, setBlackEditionAmountLeft] = useState(64);
   const [mahoganyAmountLeft, setMahoganyAmountLeft] = useState(0);
 
+  // refactor this to be one function that works for all cases
   const increment25 = () => {
     setMoneyPledged(moneyPledged + 25)
     setBackers(backers + 1)
