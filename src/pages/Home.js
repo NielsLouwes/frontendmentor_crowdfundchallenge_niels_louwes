@@ -22,29 +22,28 @@ function Home() {
   const [moneyPledged, setMoneyPledged] = useState(89914);
   const [backers, setBackers] = useState(5007);
   const [days, setDays] = useState(56);
-  const [bambooAmountLeft, setBambooAmountLeft] = useState(101);
-  const [blackEditionAmountLeft, setBlackEditionAmountLeft] = useState(64);
-  const [mahoganyAmountLeft, setMahoganyAmountLeft] = useState(0);
+  
+  const [amountLeft, setAmountLeft] = useState({
+     bamboo: 101,
+     blackEdition: 64,
+     mahogany: 0
+  });
 
-  // refactor this to be one function that works for all cases
-  const increment25 = () => {
-    setMoneyPledged(moneyPledged + 25)
-    setBackers(backers + 1)
-    setBambooAmountLeft(bambooAmountLeft - 1)
-  }
-  const increment75 = () => {
-    setMoneyPledged(moneyPledged + 75)
-    setBackers(backers + 1)
-    setBlackEditionAmountLeft(blackEditionAmountLeft - 1)
-  }
-  const increment200 = () => {
-    setMoneyPledged(moneyPledged + 200)
-    setBackers(backers + 1)
-    if (mahoganyAmountLeft === 0) {
-      return console.log("These are all sold out!");
-    } else {
-      setMahoganyAmountLeft(mahoganyAmountLeft - 1)
-    }
+ const variantPledgeMapping = {
+    bamboo: 25,
+    blackEdition: 75,
+    mahogany: 200
+ }
+// setBackers is a function that looks at previousBackersAmout and then adds 1
+// setAmoutnLeft looks at previous, speads it into a new array, then looks at input variant and -1 of whichever variant is clicked on
+  const backProductVariant = (variant) => {
+    const variantPledge = variantPledgeMapping[variant]
+    setMoneyPledged(previousMoneyPledged => previousMoneyPledged + variantPledge)
+    setBackers(previousBackersAmount =>  previousBackersAmount + 1)
+    setAmountLeft(previousAmountsLeft => ({
+      ...previousAmountsLeft, 
+      [variant]: previousAmountsLeft[variant] - 1,
+    }))
   }
 
     return (
@@ -55,12 +54,9 @@ function Home() {
                 <MoneyCard moneyPledged={moneyPledged} backers={backers} />
                 <ProjectCard 
                   moneyPledged={moneyPledged} 
-                  increment25={increment25}
-                  increment75={increment75}
-                  increment200={increment200}
-                  bambooAmountLeft={bambooAmountLeft}
-                  blackEditionAmountLeft={blackEditionAmountLeft}
-                  mahoganyAmountLeft={mahoganyAmountLeft}
+                  backProductVariant={backProductVariant}
+                  variantAmountLeft={amountLeft}
+                  backers={backers}
                 />
             </MainCardContainer>
         </Styles>

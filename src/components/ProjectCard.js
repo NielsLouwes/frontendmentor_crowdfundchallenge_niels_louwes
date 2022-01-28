@@ -27,8 +27,44 @@ const TextContainer = styled.div`
     text-align: justify;
 `
 
-function ProjectCard({moneyPledged, backers, increment25, increment75, increment200, bambooAmountLeft, blackEditionAmountLeft, mahoganyAmountLeft}) {
-    
+const productVariants = [
+  {
+      id: "bamboo",
+      label: "Bamboo Stand",
+      pledge: "Pledge $25 or more",
+      description: "You get an ergonomic stand made of natural bamboo. You've helped us launch our promotial campaign, and you'll be added to a special Backer member list."
+  },
+  {
+      id: "blackEdition",
+      label: "Black Edition Stand",
+      pledge: "Pledge $75 or more",
+      description: "You get a special edition Black computer stand and a personal thank you. You'll be added to a special Backer member list.Shipping included."
+  }, 
+  {
+      id: "mahogany",
+      label: "Mahogany Special Edition",
+      pledge: "Pledge $200 or more",
+      description: "You get to Special Edition Mahogany stand, a Backer t-shirt, and a personal thank you. You'll be added to a special Backer member list. Shipping included."
+  }
+]
+//the increment for teh different variant of Products is anonmymous function which checks the id of the variant we click on. The ID
+// is the name of the product.
+
+function ProjectCard({moneyPledged, backers, backProductVariant ,variantAmountLeft }) {
+    const renderedProductVariants = productVariants.map((variant) => {
+        return (
+          <StandCard 
+            key={variant.id}
+            label={variant.label}
+            pledge={variant.pledge}
+            description={variant.description}
+            amountLeft={variantAmountLeft[variant.id]}
+            moneyPledged={moneyPledged} 
+            increment={ () =>  backProductVariant(variant.id)}
+            backers={backers}
+            />
+        )
+    })
     return (
         <Styles>
                 <h3>About this project</h3>
@@ -40,34 +76,8 @@ function ProjectCard({moneyPledged, backers, increment25, increment75, increment
                         Featuring artisan craftstmanship, the simplicity of design creates extra desk space below your computer to allow notepads, pens, and USB sticks to be stored under the stand.
                     </p>
                 </TextContainer>
-            <StandCard
-                label="Bamboo Stand"
-                pledge="Pledge $25 or more"
-                description="You get an ergonomic stand made of natural bamboo. You've helped us launch our promotial campaign, and you'll be added to a special Backer member list."
-                amountLeft={bambooAmountLeft}
-                moneyPledged={moneyPledged} 
-                increment={increment25}
-                backers={backers}
-            />
-            <StandCard
-                label="Black Edition Stand"
-                pledge="Pledge $75 or more"
-                description="You get a special edition Black computer stand and a personal thank you. You'll be added to a special Backer member list.Shipping included."
-                amountLeft={blackEditionAmountLeft}
-                moneyPledged={moneyPledged} 
-                increment={increment75}
-                backers={backers}
-            />
-            {/* needs to be greyed out as none are left in stock */}
-            <StandCard
-                label="Mahogany Special Edition"
-                 pledge="Pledge $200 or more"
-                description="You get to Special Edition Mahogany stand, a Backer t-shirt, and a personal thank you. You'll be added to a special Backer member list. Shipping included."
-                amountLeft={mahoganyAmountLeft}  
-                moneyPledged={moneyPledged} 
-                increment={increment200}
-                backers={backers}s
-            />
+              {renderedProductVariants}
+
         </Styles>
     )
 }
