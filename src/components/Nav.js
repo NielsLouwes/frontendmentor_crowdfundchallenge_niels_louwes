@@ -5,6 +5,7 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import Divider from '@mui/material/Divider';
 
 const Styles = styled.div`
     nav {
@@ -45,10 +46,11 @@ const style = {
   position: 'absolute',
   top: '7%',
   left: '70%',
-  // transform: 'translate(-50%, -50%)',
   width: 400,
+  height: 400,
   bgcolor: 'background.paper',
-  border: '2px solid #000',
+  // border: '1px solid #000',
+  borderRadius: '15px',
   boxShadow: 24,
   p: 4,
 };
@@ -60,7 +62,7 @@ const MenuOptions = styled.div`
     margin-right: 35px;
 `
 
-function Nav() {
+function Nav({backProductVariant, backers}) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -80,14 +82,15 @@ function Nav() {
               aria-describedby="modal-modal-description"
               >
             <Box sx={style}>
-              <Typography id="modal-modal-title" variant="h6" component="h2">
-                Text in a modal
+              <Typography style={{fontWeight: "bolder" , color: "black"}} id="modal-modal-title" variant="h5" component="h2">
+                Shopping cart
               </Typography>
-              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+              <Divider style={{marginTop: "10px"}} />
+              <Typography  id="modal-modal-description" sx={{ mt: 2 }}>
+                   Your cart is empty.
               </Typography>
-           </Box>
-      </Modal>
+            </Box>
+            </Modal>
                 </MenuOptions>
           </nav>
 

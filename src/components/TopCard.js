@@ -53,11 +53,7 @@ const ButtonContainer = styled.div`
 }
 `;
 
-
-
 function MainCard({moneyPledged}) {
-
-
     return (
         <Styles>
             <h2>MasterCraft Bamboo Monitor Riser</h2>
