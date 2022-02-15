@@ -83,7 +83,7 @@ function Nav({backProductVariant, backers}) {
               >
             <Box sx={style}>
               <Typography style={{fontWeight: "bolder" , color: "black"}} id="modal-modal-title" variant="h5" component="h2">
-                Shopping cart
+              Shopping cart
               </Typography>
               <Divider style={{marginTop: "10px"}} />
               <Typography  id="modal-modal-description" sx={{ mt: 2 }}>

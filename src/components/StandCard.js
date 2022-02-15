@@ -80,9 +80,7 @@ const CardTitle = styled.p`
     color: black;
     font-weight: bolder;
 `
-
 function StandCard({label, pledge, description, increment, amountLeft}) {
-
 
     return (
         <Styles>

@@ -31,18 +31,21 @@ const productVariants = [
   {
       id: "bamboo",
       label: "Bamboo Stand",
+      price: 25,
       pledge: "Pledge $25 or more",
       description: "You get an ergonomic stand made of natural bamboo. You've helped us launch our promotial campaign, and you'll be added to a special Backer member list."
   },
   {
       id: "blackEdition",
       label: "Black Edition Stand",
+      price: 75,
       pledge: "Pledge $75 or more",
       description: "You get a special edition Black computer stand and a personal thank you. You'll be added to a special Backer member list.Shipping included."
   }, 
   {
       id: "mahogany",
       label: "Mahogany Special Edition",
+      price: 200,
       pledge: "Pledge $200 or more",
       description: "You get to Special Edition Mahogany stand, a Backer t-shirt, and a personal thank you. You'll be added to a special Backer member list. Shipping included."
   }

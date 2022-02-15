@@ -48,7 +48,7 @@ function Home() {
 
     return (
         <Styles>
-          <Nav backers={backers}/>
+          <Nav backers={backers} backProductVariant={backProductVariant}/>
             <MainCardContainer>
                 <TopCard moneyPledged={moneyPledged} />
                 <MoneyCard moneyPledged={moneyPledged} backers={backers} />
