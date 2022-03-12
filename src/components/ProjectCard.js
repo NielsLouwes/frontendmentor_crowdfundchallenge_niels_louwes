@@ -1,6 +1,6 @@
 import React  from 'react'
 import styled from 'styled-components'
-import StandCard from './StandCard'
+import StandCard from './StandCard/StandCard'
 
 const Styles = styled.div`
     width: 45%;
