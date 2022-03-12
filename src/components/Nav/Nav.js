@@ -1,6 +1,6 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
-import bannerImage from '../images/image-hero-desktop.jpg'
+import bannerImage from '../../images/image-hero-desktop.jpg'
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -13,7 +13,7 @@ const Styles = styled.div`
         justify-content: space-between;
         width: 98%;
         padding: 10px;
-        height: 30vh;
+        height: 29vh;
     .hvr-grow {
         display: inline-block;s
         vertical-align: middle;
@@ -62,8 +62,8 @@ const MenuOptions = styled.div`
     margin-right: 35px;
 `
 
-function Nav({backProductVariant, backers}) {
-  const [open, setOpen] = React.useState(false);
+function Nav() {
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   
@@ -74,7 +74,7 @@ function Nav({backProductVariant, backers}) {
           <MenuOptions>
               <p className="hvr-grow">About</p>
               <p className="hvr-grow">Discover</p>
-              <p> <ShoppingCartOutlinedIcon onClick={handleOpen} /></p>
+              <p> <ShoppingCartOutlinedIcon data-testid="cart-test-id" onClick={handleOpen} /></p>
             <Modal
               open={open}
               onClose={handleClose}

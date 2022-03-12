@@ -1,10 +1,9 @@
 import React, {useState} from 'react'
 import TopCard from '../components/TopCard'
-import Nav from '../components/Nav'
+import Nav from '../components/Nav/Nav'
 import MoneyCard from '../components/MoneyCard'
 import styled from 'styled-components'
 import ProjectCard from '../components/ProjectCard'
-
 
 const Styles = styled.div`
   background-color: hsl(45, 29%, 97%);
