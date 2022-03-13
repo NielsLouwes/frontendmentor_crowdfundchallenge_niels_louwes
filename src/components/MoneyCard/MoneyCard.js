@@ -47,7 +47,7 @@ function MoneyCard({moneyPledged, backers}) {
                   <p> days left</p>
                 </div>
                 </FiguresContainer>
-                <ProgressBar value={moneyPledged} max={100000}/>        
+                <ProgressBar data-testid="progress-bar-testid" value={moneyPledged} max={100000}/>        
         </Styles>
     )
 }
