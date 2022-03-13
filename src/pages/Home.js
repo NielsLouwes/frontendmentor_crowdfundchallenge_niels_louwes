@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import TopCard from '../components/TopCard'
 import Nav from '../components/Nav/Nav'
-import MoneyCard from '../components/MoneyCard'
+import MoneyCard from '../components/MoneyCard/MoneyCard'
 import styled from 'styled-components'
 import ProjectCard from '../components/ProjectCard'
 

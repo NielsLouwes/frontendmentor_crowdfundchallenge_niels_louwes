@@ -1,6 +1,5 @@
 /* eslint-disable testing-library/no-debugging-utils */
 import { render, screen, fireEvent } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import Nav from '../Nav'
 
 describe('Nav component', () => {
@@ -33,7 +32,7 @@ describe('Nav component', () => {
     })
 
     // it('renders the shopping cart modal when shopping cart icon is clicked on', () => {
-    //     render(<Nav />)
+    //     render(<Nav handleOpen={true}/>)
     //     const cartComponent = screen.getByTestId("cart-test-id");
     //     const modalComponent = screen.ariaLabe(/your cart is empty\./i)
     //     expect(cartComponent).toBeInTheDocument();
