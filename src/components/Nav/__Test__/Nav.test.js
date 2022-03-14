@@ -1,5 +1,5 @@
 /* eslint-disable testing-library/no-debugging-utils */
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import Nav from '../Nav'
 
 describe('Nav component', () => {
@@ -31,14 +31,13 @@ describe('Nav component', () => {
         // screen.debug();
     })
 
-    // it('renders the shopping cart modal when shopping cart icon is clicked on', () => {
-    //     render(<Nav handleOpen={true}/>)
-    //     const cartComponent = screen.getByTestId("cart-test-id");
-    //     const modalComponent = screen.ariaLabe(/your cart is empty\./i)
-    //     expect(cartComponent).toBeInTheDocument();
-    //     fireEvent.click(cartComponent);
-    //     expect(modalComponent).toBeInTheDocument();
-    //     // screen.debug(screen.getByText(/your cart is empty\./i))
-    // })
+    it('renders the shopping cart modal when shopping cart icon is clicked on', async () => {
+        render(<Nav handleOpen={true}/>)
+        const cartComponent = screen.getByTestId("cart-test-id");
+        expect(cartComponent).toBeInTheDocument();
+        fireEvent.click(cartComponent);
+        const modalComponent = await screen.findByText(/your cart is empty\./i)
+        expect(modalComponent).toBeInTheDocument();
+    })
 }) 
     
